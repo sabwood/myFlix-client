@@ -25,7 +25,7 @@ export const MainView = () => {
       directorDescription: "movieTwoDirector description"
     },
     {
-      id: 2,
+      id: 3,
       title: "movieThree",
       image: "https://images.pexels.com/photos/20696165/pexels-photo-20696165/free-photo-of-a-surfer-walks-out-of-the-water-and-into-the-ocean.jpeg",
       description: "movieThree description",
