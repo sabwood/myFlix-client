@@ -27320,52 +27320,42 @@ var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies, setMovies] = (0, _react.useState)([
-        {
-            id: 1,
-            title: "movieOne",
-            image: "https://images.pexels.com/photos/20696165/pexels-photo-20696165/free-photo-of-a-surfer-walks-out-of-the-water-and-into-the-ocean.jpeg",
-            description: "movieOne description",
-            genre: "genreExampleOne",
-            director: "movieOneDirector",
-            directorBirthYear: "1999",
-            directorDescription: "movieOneDirector description"
-        },
-        {
-            id: 2,
-            title: "movieTwo",
-            image: "https://images.pexels.com/photos/20696165/pexels-photo-20696165/free-photo-of-a-surfer-walks-out-of-the-water-and-into-the-ocean.jpeg",
-            description: "movieTwo description",
-            genre: "genreExampleTwo",
-            director: "movieTwoDirector",
-            directorBirthYear: "1960",
-            directorDescription: "movieTwoDirector description"
-        },
-        {
-            id: 3,
-            title: "movieThree",
-            image: "https://images.pexels.com/photos/20696165/pexels-photo-20696165/free-photo-of-a-surfer-walks-out-of-the-water-and-into-the-ocean.jpeg",
-            description: "movieThree description",
-            genre: "genreExampleThree",
-            director: "movieThreeDirector",
-            directorBirthYear: "1970",
-            directorDescription: "movieThreeDirector description"
-        }
-    ]);
+    const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            const moviesFromApi = data.docs.map((doc)=>{
+                return {
+                    id: doc.key,
+                    title: doc.title,
+                    description: doc.description,
+                    genre: {
+                        name: doc.genre_name?.[0],
+                        description: doc.genre_description?.[0]
+                    },
+                    director: {
+                        name: doc.director_name?.[0],
+                        birthYear: doc.director_birthYear?.[0],
+                        description: doc.director_description?.[0]
+                    }
+                };
+            });
+            setMovies(moviesFromApi);
+        });
+    }, []);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 37,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 48,
+        lineNumber: 42,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27376,16 +27366,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 54,
+                lineNumber: 48,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 52,
+        lineNumber: 46,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "BeWwl63dxzS24WcBnq3XxxRa8Q0=");
+_s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
