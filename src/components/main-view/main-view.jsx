@@ -22,8 +22,8 @@ export const MainView = () => {
             },
             director: {
               name: doc.director_name?.[0],
-              birthYear: doc.director_birthYear?.[0],
-              description: doc.director_description?.[0]
+              birth: doc.director_birthYear?.[0],
+              bio: doc.director_description?.[0]
             }
           };
         });
