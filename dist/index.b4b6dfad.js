@@ -27324,19 +27324,20 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.docs.map((doc)=>{
+            const moviesFromApi = data.docs.map((movie)=>{
+                console.log("movie", movie);
                 return {
-                    id: doc.key,
-                    title: doc.title,
-                    description: doc.description,
+                    id: movie.key,
+                    title: movie.title,
+                    description: movie.description,
                     genre: {
-                        name: doc.genre_name?.[0],
-                        description: doc.genre_description?.[0]
+                        name: movie.genre_name[0],
+                        description: movie.genre_description[0]
                     },
                     director: {
-                        name: doc.director_name?.[0],
-                        birth: doc.director_birthYear?.[0],
-                        bio: doc.director_description?.[0]
+                        name: movie.director_name[0],
+                        birth: movie.director_birthYear[0],
+                        bio: movie.director_description[0]
                     }
                 };
             });
@@ -27348,14 +27349,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 37,
+        lineNumber: 38,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 42,
+        lineNumber: 43,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27366,12 +27367,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 48,
+                lineNumber: 49,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 46,
+        lineNumber: 47,
         columnNumber: 5
     }, undefined);
 };
