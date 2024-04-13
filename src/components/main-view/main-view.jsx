@@ -11,20 +11,20 @@ export const MainView = () => {
     fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.docs.map((movie) => {
+        const moviesFromApi = data.map((movie) => {
           console.log("movie", movie);
           return {
-            id: movie.key,
-            title: movie.title,
-            description: movie.description,
+            id: movie._id,
+            title: movie.Title,
+            description: movie.Description,
             genre: {
-              name: movie.genre_name[0],
-              description: movie.genre_description[0]
+              name: movie.Genre_Name,
+              description: movie.Genre_Description
             },
             director: {
-              name: movie.director_name[0],
-              birth: movie.director_birthYear[0],
-              bio: movie.director_description[0]
+              name: movie.Director_Name,
+              birth: movie.Director_Birth,
+              bio: movie.Director_Bio
             }
           };
         });
