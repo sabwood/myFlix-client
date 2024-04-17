@@ -15,16 +15,16 @@ export const MainView = () => {
           console.log("movie", movie);
           return {
             id: movie._id,
-            title: movie.Title,
-            description: movie.Description,
-            genre: {
-              name: movie.Genre.Name,
-              description: movie.Genre.Description
+            Title: movie.Title,
+            Description: movie.Description,
+            Genre: {
+              Name: movie.Genre.Name,
+              Description: movie.Genre.Description
             },
-            director: {
-              name: movie.Director.Name,
-              birth: movie.Director.Birth,
-              bio: movie.Director.Bio
+            Director: {
+              Name: movie.Director.Name,
+              Birth: movie.Director.Birth,
+              Bio: movie.Director.Bio
             }
           };
         });
