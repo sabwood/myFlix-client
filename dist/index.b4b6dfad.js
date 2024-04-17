@@ -27266,7 +27266,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
         onClick: ()=>{
             onMovieClick(movie);
         },
-        children: movie.title
+        children: movie.Title
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
         lineNumber: 5,
@@ -27276,16 +27276,16 @@ const MovieCard = ({ movie, onMovieClick })=>{
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
-        title: (0, _propTypesDefault.default).string.isRequired,
-        description: (0, _propTypesDefault.default).string.isRequired,
-        genre: (0, _propTypesDefault.default).shape({
-            name: (0, _propTypesDefault.default).string.isRequired,
-            description: (0, _propTypesDefault.default).string.isRequired
+        Title: (0, _propTypesDefault.default).string.isRequired,
+        Description: (0, _propTypesDefault.default).string.isRequired,
+        Genre: (0, _propTypesDefault.default).shape({
+            Name: (0, _propTypesDefault.default).string.isRequired,
+            Description: (0, _propTypesDefault.default).string.isRequired
         }),
-        director: (0, _propTypesDefault.default).shape({
-            name: (0, _propTypesDefault.default).string.isRequired,
-            birthYear: (0, _propTypesDefault.default).string.isRequired,
-            description: (0, _propTypesDefault.default).string.isRequired
+        Director: (0, _propTypesDefault.default).shape({
+            Name: (0, _propTypesDefault.default).string.isRequired,
+            Birth: (0, _propTypesDefault.default).string.isRequired,
+            Description: (0, _propTypesDefault.default).string.isRequired
         })
     }).isRequired,
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
@@ -28250,7 +28250,7 @@ const MovieView = ({ movie, onBackClick })=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.title
+                        children: movie.Title
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 9,
@@ -28272,7 +28272,7 @@ const MovieView = ({ movie, onBackClick })=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.description
+                        children: movie.Description
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 13,
@@ -28294,7 +28294,7 @@ const MovieView = ({ movie, onBackClick })=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.genre
+                        children: movie.Genre
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 17,
@@ -28316,7 +28316,7 @@ const MovieView = ({ movie, onBackClick })=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.director
+                        children: movie.Director
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 21,
@@ -28328,56 +28328,12 @@ const MovieView = ({ movie, onBackClick })=>{
                 lineNumber: 19,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: "Director's Birth Year: "
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 24,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.directorBirthYear
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 25,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 23,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: "Director Description: "
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 28,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.directorDescription
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 29,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 27,
-                columnNumber: 7
-            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: onBackClick,
                 children: "Back"
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 31,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined)
         ]
