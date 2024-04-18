@@ -28360,7 +28360,7 @@ MovieView.propTypes = {
             Bio: (0, _propTypesDefault.default).string.isRequired
         })
     }).isRequired,
-    onMovieClick: (0, _propTypesDefault.default).func.isRequired
+    onBackClick: (0, _propTypesDefault.default).func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieView");
