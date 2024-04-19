@@ -1,42 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      title: "movieOne",
-      image: "https://images.pexels.com/photos/20696165/pexels-photo-20696165/free-photo-of-a-surfer-walks-out-of-the-water-and-into-the-ocean.jpeg",
-      description: "movieOne description",
-      genre: "genreExampleOne",
-      director: "movieOneDirector",
-      directorBirthYear: "1999",
-      directorDescription: "movieOneDirector description"
-    },
-    {
-      id: 2,
-      title: "movieTwo",
-      image: "https://images.pexels.com/photos/20696165/pexels-photo-20696165/free-photo-of-a-surfer-walks-out-of-the-water-and-into-the-ocean.jpeg",
-      description: "movieTwo description",
-      genre: "genreExampleTwo",
-      director: "movieTwoDirector",
-      directorBirthYear: "1960",
-      directorDescription: "movieTwoDirector description"
-    },
-    {
-      id: 3,
-      title: "movieThree",
-      image: "https://images.pexels.com/photos/20696165/pexels-photo-20696165/free-photo-of-a-surfer-walks-out-of-the-water-and-into-the-ocean.jpeg",
-      description: "movieThree description",
-      genre: "genreExampleThree",
-      director: "movieThreeDirector",
-      directorBirthYear: "1970",
-      directorDescription: "movieThreeDirector description"
-    }
-  ]);
+  const [movies, setMovies] = useState([]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  useEffect(() => {
+    fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.map((movie) => {
+          console.log("movie", movie);
+          return {
+            id: movie._id,
+            Title: movie.Title,
+            Description: movie.Description,
+            Genre: {
+              Name: movie.Genre.Name,
+              Description: movie.Genre.Description
+            },
+            Director: {
+              Name: movie.Director.Name,
+              Birth: movie.Director.Birth,
+              Bio: movie.Director.Bio
+            }
+          };
+        });
+
+        setMovies(moviesFromApi);
+      });
+  }, []);
 
   if (selectedMovie) {
     return (
