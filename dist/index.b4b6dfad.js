@@ -28438,8 +28438,8 @@ const LoginView = ({ onLoggedIn })=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            access: Username,
-            secret: Password
+            Username: Username,
+            Password: Password
         };
         fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/login", {
             method: "POST",
