@@ -16,8 +16,6 @@ export const MainView = () => {
 
   const [movies, setMovies] = useState([]);
 
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
   useEffect(() => {
     if (!token) return;
 
@@ -126,6 +124,17 @@ export const MainView = () => {
             </>
           }
         />
+        <Link to={"/"}>
+          <button
+            onClick={() => {
+              setUser(null);
+              setToken(null);
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </button>
+        </Link>
       </Row>
     </BrowserRouter>
   );
