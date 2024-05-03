@@ -41648,7 +41648,7 @@ const MovieView = ({ movies })=>{
 };
 _c = MovieView;
 MovieView.propTypes = {
-    movie: (0, _propTypesDefault.default).shape({
+    movies: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).shape({
         Title: (0, _propTypesDefault.default).string.isRequired,
         Description: (0, _propTypesDefault.default).string.isRequired,
         Genre: (0, _propTypesDefault.default).shape({
@@ -41660,7 +41660,7 @@ MovieView.propTypes = {
             Birth: (0, _propTypesDefault.default).string.isRequired,
             Bio: (0, _propTypesDefault.default).string.isRequired
         })
-    }).isRequired
+    })).isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieView");
