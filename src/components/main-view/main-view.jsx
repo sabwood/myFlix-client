@@ -26,7 +26,6 @@ export const MainView = () => {
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((movie) => {
-          console.log("movie", movie);
           return {
             id: movie._id,
             Title: movie.Title,
@@ -91,7 +90,7 @@ export const MainView = () => {
             }
           />
           <Route
-            path="/movies/:Title"
+            path="/movies/:movieId"
             element={
               <>
                 {!user ? (
