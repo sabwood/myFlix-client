@@ -7,7 +7,7 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
   return (
     <Row>
       <Form onSubmit={handleSubmit}>
-        <h2>Update Profile Information</h2>
+        <h4>Update Profile Information</h4>
 
         <Form.Group controlId="formUsername">
           <Form.Label>Username: </Form.Label>

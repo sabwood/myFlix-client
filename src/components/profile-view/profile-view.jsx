@@ -66,7 +66,7 @@ export const ProfileView = ({ user, token }) => {
     <Row>
       <Card>
         <Card.Body>
-          <Card.Title>My Profile: </Card.Title>
+          <Card.Title><h3>My Profile: </h3></Card.Title>
           <Row>
             <Row>
               <Col>Username: </Col>
