@@ -10,6 +10,7 @@ export const ProfileView = ({ user, token }) => {
   const [Password] = useState(storedUser.Password);
   const [Email, setEmail] = useState(storedUser.Email);
   const [Birthday, setBirthday] = useState(storedUser.Birthday);
+  const [setUser] = useState();
 
   const formData = {
     Username: Username,
