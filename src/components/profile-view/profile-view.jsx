@@ -36,11 +36,14 @@ export const ProfileView = ({ user, token }) => {
           return response.json()
         } else {
           alert("Update failed");
+          console.log(response)
         }
       })
       .then((user) => {
-        localStorage.setItem('user', JSON.stringify(user));
-        setUser(user)
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          setUser(user)
+        }
       })
       .catch((error) => {
         console.error(error);
