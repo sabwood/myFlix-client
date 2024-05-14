@@ -20,16 +20,6 @@ export const UpdateUser = ({ formData, handleUpdate, handleSubmit }) => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formPassword">
-          <Form.Label>Password: </Form.Label>
-          <Form.Control
-            type="password"
-            value={formData.password}
-            onChange={(e) => handleUpdate(e)}
-            required
-          />
-        </Form.Group>
-
         <Form.Group controlId="formEmail">
           <Form.Label>Email: </Form.Label>
           <Form.Control
