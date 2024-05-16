@@ -3,14 +3,13 @@ import { Row, Card, Col } from "react-bootstrap";
 import { UpdateUser } from "./update-user";
 import { useState } from "react";
 
-export const ProfileView = ({ user, token }) => {
+export const ProfileView = ({ user, token, onSubmit }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   const [Username, setUsername] = useState(storedUser.Username);
   const [Password] = useState(storedUser.Password);
   const [Email, setEmail] = useState(storedUser.Email);
   const [Birthday, setBirthday] = useState(storedUser.Birthday);
-  const [setUser] = useState();
 
   const formData = {
     Username: Username,
@@ -39,11 +38,9 @@ export const ProfileView = ({ user, token }) => {
           console.log(response)
         }
       })
-      .then((user) => {
-        if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
-          setUser(user)
-        }
+      .then((data) => {
+        localStorage.setItem('user', JSON.stringify(data));
+        onSubmit(data)
       })
       .catch((error) => {
         console.error(error);

@@ -143,7 +143,7 @@ export const MainView = () => {
                     <ProfileView
                       token={token}
                       user={user}
-                      movies={movies}
+                      onSubmit={(user) => setUser(user)}
                     />
                   </Col>
                 )}
