@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
-import { Row, Card, Col } from "react-bootstrap";
+import { Row, Card, Col, Button } from "react-bootstrap";
 import { UpdateUser } from "./update-user";
 import { useState } from "react";
+import { FavoriteMovies } from "./favorite-movies";
 
-export const ProfileView = ({ user, token, onSubmit }) => {
+export const ProfileView = ({ movies, user, token, onSubmit }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   const [Username, setUsername] = useState(storedUser.Username);
   const [Password] = useState(storedUser.Password);
   const [Email, setEmail] = useState(storedUser.Email);
   const [Birthday, setBirthday] = useState(storedUser.Birthday);
+
+  const favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.Title));
 
   const formData = {
     Username: Username,
@@ -27,17 +30,16 @@ export const ProfileView = ({ user, token, onSubmit }) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
       }
-    }
-    )
-      .then((response) => {
-        if (response.ok) {
-          alert("Update successful");
-          return response.json()
-        } else {
-          alert("Update failed");
-          console.log(response)
-        }
-      })
+    }).then((response) => {
+      if (response.ok) {
+        alert("Update successful");
+        window.location.reload();
+        return response.json();
+      } else {
+        alert("Update failed");
+        console.log(response)
+      }
+    })
       .then((data) => {
         localStorage.setItem('user', JSON.stringify(data));
         onSubmit(data)
@@ -61,7 +63,23 @@ export const ProfileView = ({ user, token, onSubmit }) => {
     }
   }
 
-
+  const handleDeregister = () => {
+    fetch(`https://wood-movies-flix-0f8372d87a02.herokuapp.com/users/${storedUser.Username}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if (response.ok) {
+        alert("Account deleted successfully!");
+        localStorage.clear();
+        window.location.reload();
+      } else {
+        alert("Something went wrong!");
+      }
+    });
+  };
 
   return (
     <Row>
@@ -82,8 +100,10 @@ export const ProfileView = ({ user, token, onSubmit }) => {
               <Col>{user.Birthday}</Col>
             </Row>
             <Row>
-              <Col>Favorite Movies: </Col>
-              <Col>{user.FavoriteMovies}</Col>
+              <FavoriteMovies
+                user={user}
+                favoriteMovies={favoriteMovies}
+              />
             </Row>
           </Row>
         </Card.Body>
@@ -95,6 +115,11 @@ export const ProfileView = ({ user, token, onSubmit }) => {
           handleSubmit={handleSubmit}
         />
       </Col>
+      <Button
+        onClick={() => handleDeregister()}
+        variant="outline-secondary">
+        Deregister Account
+      </Button>
       <Link to={"/"}>
         <button className="back-button">Back</button>
       </Link>

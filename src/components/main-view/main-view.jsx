@@ -122,7 +122,10 @@ export const MainView = () => {
                       <>
                         {movies.map((movie) => (
                           <Col className="mb-4" key={movie.id} md={3}>
-                            <MovieCard movie={movie} />
+                            <MovieCard
+                              movie={movie}
+                              isFavorite={user.FavoriteMovies.includes(movie.Title)}
+                            />
                           </Col>
                         ))}
                       </>
@@ -141,6 +144,7 @@ export const MainView = () => {
                 ) : (
                   <Col md={8}>
                     <ProfileView
+                      movies={movies}
                       token={token}
                       user={user}
                       onSubmit={(user) => setUser(user)}
