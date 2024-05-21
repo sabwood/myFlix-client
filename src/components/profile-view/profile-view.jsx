@@ -81,6 +81,8 @@ export const ProfileView = ({ movies, user, token, onSubmit }) => {
     });
   };
 
+  console.log(favoriteMovies);
+
   return (
     <Row>
       <Card>
