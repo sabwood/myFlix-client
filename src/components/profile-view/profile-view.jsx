@@ -12,7 +12,7 @@ export const ProfileView = ({ movies, user, token, onSubmit }) => {
   const [Email, setEmail] = useState(storedUser.Email);
   const [Birthday, setBirthday] = useState(storedUser.Birthday);
 
-  const favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.Title));
+  const favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));
 
   const formData = {
     Username: Username,

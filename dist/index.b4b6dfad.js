@@ -27503,7 +27503,7 @@ const MovieCard = ({ movie, isFavorite })=>{
             });
         };
         const removeFromFavorites = ()=>{
-            fetch(`https://wood-movies-flix-0f8372d87a02.herokuapp.com/users/${storedUser.Username}/movies/${encodeURIComponent(movie._id)}`, {
+            fetch(`https://wood-movies-flix-0f8372d87a02.herokuapp.com/users/${storedUser.Username}/movies/${encodeURIComponent(movie.id)}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -42223,7 +42223,7 @@ const ProfileView = ({ movies, user, token, onSubmit })=>{
     const [Password] = (0, _react.useState)(storedUser.Password);
     const [Email, setEmail] = (0, _react.useState)(storedUser.Email);
     const [Birthday, setBirthday] = (0, _react.useState)(storedUser.Birthday);
-    const favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m.Title));
+    const favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m.id));
     const formData = {
         Username: Username,
         Password: Password,
@@ -42631,7 +42631,7 @@ const FavoriteMovies = ({ user, favoriteMovies })=>{
                         md: 6,
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: `/users/${storedUser.Username}/movies/${movie.id}`
+                                to: `/users/${user.Username}/movies/${movie.id}`
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
                                 lineNumber: 15,

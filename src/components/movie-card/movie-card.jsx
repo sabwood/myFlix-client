@@ -43,7 +43,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
     };
 
     const removeFromFavorites = () => {
-      fetch(`https://wood-movies-flix-0f8372d87a02.herokuapp.com/users/${storedUser.Username}/movies/${encodeURIComponent(movie._id)}`, {
+      fetch(`https://wood-movies-flix-0f8372d87a02.herokuapp.com/users/${storedUser.Username}/movies/${encodeURIComponent(movie.id)}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

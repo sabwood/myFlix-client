@@ -12,7 +12,7 @@ export const FavoriteMovies = ({ user, favoriteMovies }) => {
       <Row>
         {favoriteMovies.map((movie) => (
           <Col key={movie.id} md={6}>
-            <Link to={`/users/${storedUser.Username}/movies/${movie.id}`} />
+            <Link to={`/users/${user.Username}/movies/${movie.id}`} />
             <MovieCard
               movie={movie}
               isFavorite={user.FavoriteMovies.includes(movie.title)}
