@@ -13,6 +13,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const [addMovie, setAddMovie] = useState("");
   const [delMovie, setDelMovie] = useState("");
 
+  const [isFavorite, setIsFavorite] = useState(user.FavoriteMovies.includes(movie.id));
+
   useEffect(() => {
     const addToFavorites = () => {
       fetch(`https://wood-movies-flix-0f8372d87a02.herokuapp.com/users/${storedUser.Username}/movies/${encodeURIComponent(movie.id)}`, {
@@ -80,10 +82,12 @@ export const MovieCard = ({ movie, isFavorite }) => {
 
   const handleAddToFavorites = () => {
     setAddMovie(movie.Title);
+    setIsFavorite(true);
   };
 
   const handleRemoveFromFavorites = () => {
     setDelMovie(movie.Title);
+    setIsFavorite(false);
   };
 
   return (
