@@ -13,7 +13,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const [addMovie, setAddMovie] = useState("");
   const [delMovie, setDelMovie] = useState("");
 
-  const [isFavorite, setIsFavorite] = useState(user.FavoriteMovies.includes(movie.id));
+  const [newFavorite, setNewFavorite] = useState(user.FavoriteMovies.includes(movie.id));
 
   useEffect(() => {
     const addToFavorites = () => {
@@ -82,12 +82,12 @@ export const MovieCard = ({ movie, isFavorite }) => {
 
   const handleAddToFavorites = () => {
     setAddMovie(movie.Title);
-    setIsFavorite(true);
+    setNewFavorite(true);
   };
 
   const handleRemoveFromFavorites = () => {
     setDelMovie(movie.Title);
-    setIsFavorite(false);
+    setNewFavorite(false);
   };
 
   return (

@@ -27374,7 +27374,7 @@ const MainView = ()=>{
                                                 md: 3,
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                                     movie: movie,
-                                                    isFavorite: isFavorite
+                                                    isFavorite: user.FavoriteMovies.includes(movie.id)
                                                 }, void 0, false, {
                                                     fileName: "src/components/main-view/main-view.jsx",
                                                     lineNumber: 125,
@@ -27479,7 +27479,7 @@ const MovieCard = ({ movie, isFavorite })=>{
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [addMovie, setAddMovie] = (0, _react.useState)("");
     const [delMovie, setDelMovie] = (0, _react.useState)("");
-    const [isFavorite, setIsFavorite] = (0, _react.useState)(user.FavoriteMovies.includes(movie.id));
+    const [newFavorite, setNewFavorite] = (0, _react.useState)(user.FavoriteMovies.includes(movie.id));
     (0, _react.useEffect)(()=>{
         const addToFavorites = ()=>{
             fetch(`https://wood-movies-flix-0f8372d87a02.herokuapp.com/users/${storedUser.Username}/movies/${encodeURIComponent(movie.id)}`, {
@@ -27533,11 +27533,11 @@ const MovieCard = ({ movie, isFavorite })=>{
     ]);
     const handleAddToFavorites = ()=>{
         setAddMovie(movie.Title);
-        setIsFavorite(true);
+        setNewFavorite(true);
     };
     const handleRemoveFromFavorites = ()=>{
         setDelMovie(movie.Title);
-        setIsFavorite(false);
+        setNewFavorite(false);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
         className: "h-100",
@@ -27607,7 +27607,7 @@ const MovieCard = ({ movie, isFavorite })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MovieCard, "OjWaipnTarx2U83PuBj22dcVcRU=");
+_s(MovieCard, "bNZ7JK3GLgKJnOdWKx4yGxFU4rg=");
 _c = MovieCard;
 MovieCard.propTypes = {
     isFavorite: (0, _propTypesDefault.default).bool.isRequired,
@@ -42640,7 +42640,7 @@ const FavoriteMovies = ({ user, favoriteMovies })=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
-                                isFavorite: isFavorite
+                                isFavorite: user.FavoriteMovies.includes(movie.id)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
                                 lineNumber: 16,
