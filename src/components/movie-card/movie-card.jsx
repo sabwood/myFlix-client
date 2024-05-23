@@ -96,11 +96,11 @@ export const MovieCard = ({ movie, isFavorite }) => {
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Genre.Name}</Card.Text>
         <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-          <Button variant="link">Open</Button>
+          <Button variant="primary">Open</Button>
         </Link>
         <Col>
           {isFavorite ? (
-            <Button variant="primary" onClick={handleRemoveFromFavorites}>Remove from favorites</Button>
+            <Button variant="secondary" onClick={handleRemoveFromFavorites}>Remove from favorites</Button>
           ) : (
             <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>
           )}
