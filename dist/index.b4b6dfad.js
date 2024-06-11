@@ -27209,7 +27209,7 @@ const MainView = ()=>{
         if (!token) return;
         fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies", {
             headers: {
-                Authorization: "Bearer ${token}"
+                Authorization: `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.map((movie)=>{
