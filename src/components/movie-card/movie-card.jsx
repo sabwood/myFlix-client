@@ -27,6 +27,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         .then((response) => {
           if (response.ok) {
             alert("Movie added to favorites!");
+            window.location.reload();
             return response.json();
           } else {
             alert("Failed to add movie to favorites.")
