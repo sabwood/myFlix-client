@@ -108,18 +108,22 @@ export const ProfileView = ({ movies, user, token, onSubmit }) => {
           </Row>
         </Card.Body>
       </Card>
-      <Col>
-        <UpdateUser
-          formData={formData}
-          handleUpdate={handleUpdate}
-          handleSubmit={handleSubmit}
-        />
-      </Col>
-      <Button
-        onClick={() => handleDeregister()}
-        variant="outline-secondary">
-        Deregister Account
-      </Button>
+      <Card>
+        <Card.Body>
+          <Col>
+            <UpdateUser
+              formData={formData}
+              handleUpdate={handleUpdate}
+              handleSubmit={handleSubmit}
+            />
+          </Col>
+          <Button
+            onClick={() => handleDeregister()}
+            variant="outline-secondary">
+            Deregister Account
+          </Button>
+        </Card.Body>
+      </Card>
       <Link to={"/"}>
         <button className="back-button">Back</button>
       </Link>

@@ -1,38 +1,15 @@
 .main-view {
-  background-color: #a9a9a9;
+  background-color: #add8e6;
 }
 
-.movie-card {
+.movie-card, .movie-view {
   text-align: center;
-}
-
-.movie-view {
-  color: #000;
-  text-align: center;
-  background-color: #d3d3d3;
-}
-
-.button {
-  color: #d3d3d3;
-  background-color: maroon;
-  display: inline-block;
-}
-
-.deregister-button {
-  color: #000;
-  background-color: #fff;
-  display: block;
 }
 
 .navbar {
   font-style: bolder;
-  color: #d3d3d3;
-  background-color: maroon;
-}
-
-.profile-view {
   color: #000;
-  background-color: #d3d3d3;
+  background-color: #add8e6;
 }
 
 :root, [data-bs-theme="light"] {
@@ -13224,4 +13201,4 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-/*# sourceMappingURL=index.2212206d.css.map */
+/*# sourceMappingURL=index.ce1d6491.css.map */

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
+      <Container className="navbar">
         <Navbar.Brand as={Link} to="/">
-          Movies App
+          <h3> myFlix App</h3>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
