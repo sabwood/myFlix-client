@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import { MovieCard } from "../movie-card/movie-card";
 
-export const SearchBar = ({ token }) => {
+export const SearchBar = ({ token, user }) => {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -60,6 +61,8 @@ export const SearchBar = ({ token }) => {
     setFilteredMovies(filtered);
   };
 
+  console.log(filteredMovies);
+
   return (
     <Row>
       <Row>
@@ -79,16 +82,16 @@ export const SearchBar = ({ token }) => {
           </Row>
         ))}
       </Row>
-      <Row className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap">
         {filteredMovies.map((movie) => (
-          <Row className="mb-4 mt-4" key={movie.id} md={3}>
+          <Col className="mb-4" key={movie.id} md={3}>
             <MovieCard
               movie={movie}
               isFavorite={user.FavoriteMovies.includes(movie.id)}
             />
-          </Row>
+          </Col>
         ))}
-      </Row>
+      </div>
     </Row>
   );
 };

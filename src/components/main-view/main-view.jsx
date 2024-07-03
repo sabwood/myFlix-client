@@ -122,7 +122,10 @@ export const MainView = () => {
                     ) : (
                       <>
                         <div>
-                          <SearchBar />
+                          <SearchBar
+                            token={token}
+                            user={user}
+                          />
                         </div>
                         {movies.map((movie) => (
                           <Col className="mb-4" key={movie.id} md={3}>
