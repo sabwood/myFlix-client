@@ -123,8 +123,8 @@ export const MainView = () => {
                       <>
                         <div>
                           <SearchBar
-                            token={token}
                             user={user}
+                            movies={movies}
                           />
                         </div>
                         {movies.map((movie) => (

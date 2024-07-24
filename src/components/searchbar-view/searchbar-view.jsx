@@ -3,40 +3,9 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 
-export const SearchBar = ({ token, user }) => {
-  const [movies, setMovies] = useState([]);
+export const SearchBar = ({ user, movies }) => {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
-
-  useEffect(() => {
-    if (!token) return;
-
-    fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const moviesFromApi = data.map((movie) => {
-          return {
-            id: movie._id,
-            Title: movie.Title,
-            Description: movie.Description,
-            Genre: {
-              Name: movie.Genre.Name,
-              Description: movie.Genre.Description
-            },
-            Director: {
-              Name: movie.Director.Name,
-              Birth: movie.Director.Birth,
-              Bio: movie.Director.Bio
-            }
-          };
-        });
-
-        setMovies(moviesFromApi);
-        setFilteredMovies(moviesFromApi);
-      });
-  }, [token]);
 
   const genres = [
     'Comedy',
@@ -60,8 +29,6 @@ export const SearchBar = ({ token, user }) => {
     });
     setFilteredMovies(filtered);
   };
-
-  console.log(filteredMovies);
 
   return (
     <Row>

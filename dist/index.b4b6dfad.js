@@ -27373,8 +27373,8 @@ const MainView = ()=>{
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchbarView.SearchBar), {
-                                                    token: token,
-                                                    user: user
+                                                    user: user,
+                                                    movies: movies
                                                 }, void 0, false, {
                                                     fileName: "src/components/main-view/main-view.jsx",
                                                     lineNumber: 125,
@@ -42746,40 +42746,10 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
-const SearchBar = ({ token, user })=>{
+const SearchBar = ({ user, movies })=>{
     _s();
-    const [movies, setMovies] = (0, _react.useState)([]);
     const [filteredMovies, setFilteredMovies] = (0, _react.useState)([]);
     const [selectedGenres, setSelectedGenres] = (0, _react.useState)([]);
-    (0, _react.useEffect)(()=>{
-        if (!token) return;
-        fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.map((movie)=>{
-                return {
-                    id: movie._id,
-                    Title: movie.Title,
-                    Description: movie.Description,
-                    Genre: {
-                        Name: movie.Genre.Name,
-                        Description: movie.Genre.Description
-                    },
-                    Director: {
-                        Name: movie.Director.Name,
-                        Birth: movie.Director.Birth,
-                        Bio: movie.Director.Bio
-                    }
-                };
-            });
-            setMovies(moviesFromApi);
-            setFilteredMovies(moviesFromApi);
-        });
-    }, [
-        token
-    ]);
     const genres = [
         "Comedy",
         "Animated",
@@ -42801,7 +42771,6 @@ const SearchBar = ({ token, user })=>{
         });
         setFilteredMovies(filtered);
     };
-    console.log(filteredMovies);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -42811,12 +42780,12 @@ const SearchBar = ({ token, user })=>{
                             children: "Search by Genre: "
                         }, void 0, false, {
                             fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                            lineNumber: 70,
+                            lineNumber: 38,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                        lineNumber: 69,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, undefined),
                     genres.map((genre)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -42828,25 +42797,25 @@ const SearchBar = ({ token, user })=>{
                                         onChange: ()=>handleGenreChange(genre)
                                     }, void 0, false, {
                                         fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                                        lineNumber: 75,
+                                        lineNumber: 43,
                                         columnNumber: 15
                                     }, undefined),
                                     genre
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                                lineNumber: 74,
+                                lineNumber: 42,
                                 columnNumber: 13
                             }, undefined)
                         }, genre, false, {
                             fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                            lineNumber: 73,
+                            lineNumber: 41,
                             columnNumber: 11
                         }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                lineNumber: 68,
+                lineNumber: 36,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -42859,27 +42828,27 @@ const SearchBar = ({ token, user })=>{
                             isFavorite: user.FavoriteMovies.includes(movie.id)
                         }, void 0, false, {
                             fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                            lineNumber: 88,
+                            lineNumber: 56,
                             columnNumber: 13
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                        lineNumber: 87,
+                        lineNumber: 55,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/searchbar-view/searchbar-view.jsx",
-                lineNumber: 85,
+                lineNumber: 53,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/searchbar-view/searchbar-view.jsx",
-        lineNumber: 67,
+        lineNumber: 35,
         columnNumber: 5
     }, undefined);
 };
-_s(SearchBar, "MbzxvIkRuPnzUNg/EN/WX4a7mh8=");
+_s(SearchBar, "p0hxhn9otJ/6nXwpvivRlHd4ZX4=");
 _c = SearchBar;
 exports.default = SearchBar;
 var _c;
