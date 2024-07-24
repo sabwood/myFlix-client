@@ -1,7 +1,21 @@
 $color: steelblue;
 
-.my-flix {
-  color: $color;
+.main-view {
+  background-color: lightblue;
+}
+
+.movie-card {
+  text-align: center;
+}
+
+.movie-view {
+  text-align: center;
+}
+
+.navbar {
+  font-style: bolder;
+  color: black;
+  background-color: lightblue;
 }
 
 @import '~bootstrap/scss/bootstrap.scss';

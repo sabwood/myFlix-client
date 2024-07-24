@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { Row, Card, Col, Button } from "react-bootstrap";
 
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
@@ -8,23 +9,26 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((m) => m.id === movieId);
 
   return (
-    <div>
-      <div>
-        <span>Title: </span>
-        <span>{movie.Title}</span>
-      </div>
-      <div>
-        <span>Description: </span>
-        <span>{movie.Description}</span>
-      </div>
-      <div>
-        <span>Genre: </span>
-        <span>{movie.Genre.Name}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.Director.Name}</span>
-      </div>
+    <Row className="movie-view">
+      <Card>
+        <Card.Body>
+          <Card.Title><h3>{movie.Title}: </h3></Card.Title>
+          <Row>
+            <Row>
+              <Col>Description: </Col>
+              <Col>{movie.Description}</Col>
+            </Row>
+            <Row>
+              <Col>Genre: </Col>
+              <Col>{movie.Genre.Name}</Col>
+            </Row>
+            <Row>
+              <Col>Director: </Col>
+              <Col>{movie.Director.Name}</Col>
+            </Row>
+          </Row>
+        </Card.Body>
+      </Card>
       <Link to={"/"}>
         <button
           className="back-button"
@@ -33,7 +37,7 @@ export const MovieView = ({ movies }) => {
           Back
         </button>
       </Link>
-    </div>
+    </Row>
   );
 };
 

@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ProfileView } from "../profile-view/profile-view";
+import { SearchBar } from "../searchbar-view/searchbar-view";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -22,7 +23,7 @@ export const MainView = () => {
     if (!token) return;
 
     fetch("https://wood-movies-flix-0f8372d87a02.herokuapp.com/movies", {
-      headers: { Authorization: "Bearer ${token}" },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -120,6 +121,12 @@ export const MainView = () => {
                       <Col>The list is empty!</Col>
                     ) : (
                       <>
+                        <div>
+                          <SearchBar
+                            user={user}
+                            movies={movies}
+                          />
+                        </div>
                         {movies.map((movie) => (
                           <Col className="mb-4" key={movie.id} md={3}>
                             <MovieCard
