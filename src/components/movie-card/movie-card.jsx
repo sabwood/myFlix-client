@@ -27,7 +27,6 @@ export const MovieCard = ({ movie, isFavorite }) => {
         .then((response) => {
           if (response.ok) {
             alert("Movie added to favorites!");
-            window.location.reload();
             return response.json();
           } else {
             alert("Failed to add movie to favorites.")
@@ -92,7 +91,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   };
 
   return (
-    <Card className="movie-card h-100">
+    <Card className="h-100">
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Genre.Name}</Card.Text>

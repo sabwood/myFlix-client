@@ -1,38 +1,5 @@
-.main-view {
-  background-color: #a9a9a9;
-}
-
-.movie-card {
-  text-align: center;
-}
-
-.movie-view {
-  color: #000;
-  text-align: center;
-  background-color: #d3d3d3;
-}
-
-.button {
-  color: #d3d3d3;
-  background-color: maroon;
-  display: inline-block;
-}
-
-.deregister-button {
-  color: #000;
-  background-color: #fff;
-  display: block;
-}
-
-.navbar {
-  font-style: bolder;
-  color: #d3d3d3;
-  background-color: maroon;
-}
-
-.profile-view {
-  color: #000;
-  background-color: #d3d3d3;
+.my-flix {
+  color: #4682b4;
 }
 
 :root, [data-bs-theme="light"] {
@@ -156,6 +123,8 @@
 }
 
 [data-bs-theme="dark"] {
+  --lightningcss-light: ;
+  --lightningcss-dark: initial;
   color-scheme: dark;
   --bs-body-color: #dee2e6;
   --bs-body-color-rgb: 222, 226, 230;
